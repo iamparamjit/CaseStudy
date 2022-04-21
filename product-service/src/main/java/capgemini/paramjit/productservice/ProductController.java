@@ -15,18 +15,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/v1")
 public class ProductController {
-	
 	@Autowired
-	private ProductRepository productRepo;
-	
+	private ProductService productService;
 	
 	@PostMapping("/add")
-	public ResponseEntity <String> addProduct(@RequestBody Product product){
+	public String addProduct(@RequestBody Product product){
 		
-		productRepo.save(product);
 		
-		return new ResponseEntity<String>("Product added",HttpStatus.OK);
+		return productService.addProduct(product);
 	}
+	
+
 	
 	
 	
