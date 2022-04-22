@@ -1,8 +1,16 @@
 package capgemini.paramjit.productservice;
 
-import org.bson.codecs.IntegerCodec;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import java.util.Optional;
 
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+
+
+@Repository
 public interface ProductRepository extends MongoRepository<Product, String>{
+
+	 
+	
 
 }

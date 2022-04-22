@@ -6,9 +6,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
+
 @SpringBootApplication
-//@EnableEurekaClient
+@EnableEurekaClient
 @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
+@OpenAPIDefinition(info=@Info(title="Product API",version="1.0",description="Product microservice"))
 public class ProductServiceApplication {
 
 	public static void main(String[] args) {

@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +21,7 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
-	@PostMapping("/add")
+	@PostMapping("/addProduct")
 	public String addProduct(@RequestBody Product product){
 		
 		return productService.addProduct(product);
@@ -32,15 +33,26 @@ public class ProductController {
 		return productService.getAllProducts();
 	}
 	
-	@GetMapping("/getProduct/{productId}")
+	@GetMapping("/getProductById/{productId}")
 	public Optional<Product> getProductById(@PathVariable String productId){
 		return productService.getProductById(productId);
 	}
 	
-	@PutMapping("/update/{productId}")
+	//@GetMapping("/getProductByCategory/{categoryname}")
+	//public Optional<Product> getProductByCategory(@PathVariable String categoryName){
+		//return productService.getProductByCategory(categoryName);
+	//}
+	
+	@PutMapping("/updateProduct/{productId}")
 	public String updateProduct(@RequestBody Product product,@PathVariable int id) {
 		return productService.updateProducts(id,product);
 	}
+	
+	 @DeleteMapping("/deleteProduct/{productId}")
+	 public String deleteProduct(@PathVariable String productId){
+			return productService.deleteProduct(productId);
+		}
+	 
 		
 	
 	

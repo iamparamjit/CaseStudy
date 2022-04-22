@@ -33,6 +33,15 @@ public class ProductService {
 	public Optional<Product> getProductById(String prroductId) {
 	        return productRepo.findById(prroductId);	
 	        }
+
+	public String deleteProduct(String productId) {
+		productRepo.deleteById(productId);
+		return "deleted succesfully";
+	}
+
+	//public Optional<Product> getProductByCategory(String categoryName) {
+		//return productRepo.findByCategory();
+	//}
 	
 	
 
