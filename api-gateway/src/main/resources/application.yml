@@ -13,5 +13,5 @@ spring:
         uri: 
           lb://product-service
         predicates:
-        - Path=/v1/**
+        - Path=/products/**
      
