@@ -14,4 +14,9 @@ spring:
           lb://product-service
         predicates:
         - Path=/products/**
+      - id: profile-service
+        uri: 
+          lb://profile-service
+        predicates:
+        - Path=/profile/**
      
