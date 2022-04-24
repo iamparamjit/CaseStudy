@@ -23,7 +23,7 @@ public class ProfileController {
 		
 	}
 	
-	@GetMapping("/getProfiles")
+	@GetMapping("/getAllProfiles")
 	public List<Profile> getProfiles() {
 		return profileService.getProfiles();
 	}
