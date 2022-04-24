@@ -18,7 +18,9 @@ public class ProfileController {
 	
 	@PostMapping("/addProfile")
 	public String addProfile(@RequestBody Profile profile) {
-		return profileService.addProfile(profile); 
+		return profileService.addProfile(profile);
+		
+		
 	}
 	
 	@GetMapping("/getProfiles")
