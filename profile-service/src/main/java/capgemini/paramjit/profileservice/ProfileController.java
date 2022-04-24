@@ -17,6 +17,7 @@ public class ProfileController {
 	public String addProfile(@RequestBody Profile profile) {
 		return profileService.addProfile(profile);
 		
+		
 	}
 
 }
