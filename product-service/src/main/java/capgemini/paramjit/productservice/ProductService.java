@@ -20,23 +20,47 @@ public class ProductService {
 	}
 
 	public List<Product> getAllProducts() {
-		List<Product> products=productRepo.findAll();
-		return products;
-	}
-
-	public String updateProducts(int id,Product product) {
+		return productRepo.findAll();
 		
-		 productRepo.save(product);
-		return "Product Updated";
 	}
+	
+	
 
-	public Optional<Product> getProductById(String prroductId) {
-	        return productRepo.findById(prroductId);	
+	 public String updateProduct(Product product) {
+
+	        Optional<Product> prod = productRepo.findById(product.getId());
+	        if (!prod.isPresent()) {
+	            return ("Updation FAILED");
 	        }
 
-	public String deleteProduct(String productId) {
-		productRepo.deleteById(productId);
+	        Product updatedProduct = productRepo.save(product);
+
+	        return "Updation SUCCESS";
+	    }
+	 
+	 
+
+	public Optional<Product> getProductById(String id) {
+	        return productRepo.findById(id);	
+	        }
+
+	public String deleteProduct(String id) {
+		productRepo.deleteById(id);
 		return "deleted succesfully";
+	}
+
+	//public Optional<Product> getProductByCategory(String categoryName) {
+		//return productRepo.findByCategory();
+	//}
+	
+	
+
+
+
+
+	public String deleteAll() {
+		productRepo.deleteAll();
+		return "deleted all";
 	}
 
 	//public Optional<Product> getProductByCategory(String categoryName) {
