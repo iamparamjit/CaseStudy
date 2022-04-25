@@ -38,10 +38,15 @@ public class ProductController {
 		return productService.getProductById(id);
 	}
 	
-	//@GetMapping("/getProductByCategory/{categoryname}")
-	//public Optional<Product> getProductByCategory(@PathVariable String categoryName){
-		//return productService.getProductByCategory(categoryName);
-	//}
+	@GetMapping("/getProductByCategory/{productCategory}")
+	public List<Product> getProductByCategory(@PathVariable String productCategory){
+		return productService.getProductByCategory(productCategory);
+	}
+	
+	@GetMapping("/getProductByType/{productType}")
+	public List<Product> getProductByType(@PathVariable String productType){
+		return productService.getProductByType(productType);
+	}
 	
 	  @PutMapping("/updateProduct")
 	    public String updateProduct(@RequestBody Product product) {

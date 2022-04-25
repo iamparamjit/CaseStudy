@@ -49,13 +49,6 @@ public class ProductService {
 		return "deleted succesfully";
 	}
 
-	//public Optional<Product> getProductByCategory(String categoryName) {
-		//return productRepo.findByCategory();
-	//}
-	
-	
-
-
 
 
 	public String deleteAll() {
@@ -63,9 +56,17 @@ public class ProductService {
 		return "deleted all";
 	}
 
-	//public Optional<Product> getProductByCategory(String categoryName) {
-		//return productRepo.findByCategory();
-	//}
+	public List<Product> getProductByCategory(String productCategory) {
+
+		return productRepo.findByProductCategory(productCategory);
+	}
+
+	public List<Product> getProductByType(String productType) {
+		// TODO Auto-generated method stub
+		return productRepo.findByProductType(productType);
+	}
+
+	
 	
 	
 
