@@ -1,4 +1,4 @@
-package capgemini.paramjit.productservice;
+package capgemini.paramjit.productservice.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import capgemini.paramjit.productservice.model.Product;
+import capgemini.paramjit.productservice.service.ProductService;
 
 @RestController
 @RequestMapping("/products")

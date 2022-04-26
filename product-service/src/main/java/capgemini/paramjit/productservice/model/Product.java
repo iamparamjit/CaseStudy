@@ -1,6 +1,5 @@
-package capgemini.paramjit.productservice;
+package capgemini.paramjit.productservice.model;
 
-import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import org.springframework.data.mongodb.core.mapping.Document;

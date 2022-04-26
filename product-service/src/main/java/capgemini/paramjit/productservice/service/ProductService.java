@@ -1,4 +1,4 @@
-package capgemini.paramjit.productservice;
+package capgemini.paramjit.productservice.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,6 +7,11 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import capgemini.paramjit.productservice.model.Product;
+import capgemini.paramjit.productservice.repository.ProductRepository;
+
+
 
 @Service
 public class ProductService {
