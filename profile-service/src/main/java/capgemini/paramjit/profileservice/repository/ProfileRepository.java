@@ -1,9 +1,11 @@
-package capgemini.paramjit.profileservice;
+package capgemini.paramjit.profileservice.repository;
 
 import java.util.List;
 
-import org.springframework.boot.autoconfigure.mongo.MongoClientSettingsBuilderCustomizer;
+
 import org.springframework.data.mongodb.repository.MongoRepository;
+
+import capgemini.paramjit.profileservice.model.Profile;
 
 public interface ProfileRepository extends MongoRepository<Profile, String>{
 	List<Profile> findByRole(String role);

@@ -1,4 +1,4 @@
-package capgemini.paramjit.profileservice;
+package capgemini.paramjit.profileservice.model;
 
 import java.time.LocalDate;
 import java.util.List;

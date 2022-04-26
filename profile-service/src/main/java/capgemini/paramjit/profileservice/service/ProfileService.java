@@ -1,10 +1,13 @@
-package capgemini.paramjit.profileservice;
+package capgemini.paramjit.profileservice.service;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import capgemini.paramjit.profileservice.model.Profile;
+import capgemini.paramjit.profileservice.repository.ProfileRepository;
 
 
 
@@ -29,7 +32,7 @@ public class ProfileService {
 	            return ("Updation FAILED");
 	        }
 
-	        Profile updatedProfile = profileRepo.save(profile);
+	        profileRepo.save(profile);
 
 	        return "Updation SUCCESS";
 	    }
