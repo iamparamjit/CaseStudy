@@ -1,6 +1,7 @@
 package capgemini.paramjit.profileservice;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -19,6 +20,7 @@ public class Profile {
 	private String gender;
 	private String role;
 	private String password;
+	//private List Address;
 
 	
 }
