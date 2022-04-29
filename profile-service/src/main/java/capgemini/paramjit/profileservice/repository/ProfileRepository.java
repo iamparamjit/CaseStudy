@@ -9,6 +9,8 @@ import capgemini.paramjit.profileservice.model.Profile;
 
 public interface ProfileRepository extends MongoRepository<Profile, String>{
 	List<Profile> findByRole(String role);
+
+	Profile findByEmailId(String emailId);
 	
 
 	
