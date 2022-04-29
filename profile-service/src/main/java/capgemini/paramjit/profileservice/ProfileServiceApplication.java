@@ -24,6 +24,7 @@ public class ProfileServiceApplication {
 	public PasswordEncoder passwordEncoder() {
 		return NoOpPasswordEncoder.getInstance();
 	}
+	
 
 }
 

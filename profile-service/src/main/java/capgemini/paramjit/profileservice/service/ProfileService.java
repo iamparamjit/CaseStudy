@@ -22,34 +22,11 @@ public class ProfileService implements UserDetailsService {
 	@Autowired
 	private ProfileRepository profileRepo;
 	
-	/*
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Profile user = profileRepo.findByEmailId(username);
-        if(user != null) {
-            System.out.println(user.toString());
-            return user(profileRepo.findByEmailId(username),"pass",new ArrayList<>());
-        }
-        throw new UsernameNotFoundException("User "+ username +" not found");
-	} 
-	 
-	
-	private UserDetails user(Profile findByEmailId, String string, ArrayList arrayList) {
-		// TODO Auto-generated method stub
-		return null;
-	}*/
-	
-////////////////////////////////////////////////////////////////////////////
 
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-	
-		return new User("param","pass",new ArrayList<>());
-	}
-	
-	
-	
-///////////////////////////////////////////////////////////////////////////
+
+
+
+
 	public String registerUser(Profile profile) {
 		profileRepo.save(profile);
 		return "User Registered";
@@ -75,12 +52,37 @@ public class ProfileService implements UserDetailsService {
 	}
 	
 	
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		return new User("param","pass",new ArrayList<>());
+			}
+	
+	
+	
+	
+	
 	
 }
 	
 
 	
 	
+/*
+@Override
+public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	Profile user = profileRepo.findByEmailId(username);
+    if(user != null) {
+        System.out.println(user.toString());
+        return user(profileRepo.findByEmailId(username),"pass",new ArrayList<>());
+    }
+    throw new UsernameNotFoundException("User "+ username +" not found");
+} 
+ 
+
+private UserDetails user(Profile findByEmailId, String string, ArrayList arrayList) {
+	// TODO Auto-generated method stub
+	return null;
+}*/
 
 
 
