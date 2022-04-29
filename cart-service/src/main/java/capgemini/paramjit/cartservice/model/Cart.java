@@ -9,9 +9,11 @@ import lombok.Data;
 public class Cart {
 	private String cartId;
 	private Double totalPrice;
-	private Double price;
-	private String productName;
-	private int quantity;
+	//private Double price;
+	//private String productName;
+	//private int quantity;
+	private String id;            //this product id from product micro service
+	
 	
 
 }

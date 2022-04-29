@@ -8,4 +8,6 @@ import capgemini.paramjit.cartservice.model.Cart;
 @Repository
 public interface CartRepository extends MongoRepository<Cart, String> {
 
+	Cart findByCartId(String cartId);
+
 }
