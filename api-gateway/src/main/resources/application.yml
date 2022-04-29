@@ -20,5 +20,9 @@ spring:
           lb://profile-service
         predicates:
         - Path=/profile/**
-
-     
+       
+      - id: cart-service
+        uri: 
+          lb://cart-service
+        predicates:
+        - Path=/cart/**
