@@ -23,26 +23,33 @@ public class ProfileController {
 	@Autowired
 	private ProfileService profileService;
 	
+	
+	//this is for registration of an user(can be a merchant or a consumer)
 	@PostMapping("/registerUser")
 	public String registerUser(@RequestBody Profile profile) {
 		return profileService.registerUser(profile);
 	}
 	
+	//this service is for developer purpose only
 	@GetMapping("/getAllUsers")
 	public List<Profile> getAllUsers() {
 		return profileService.getAllUsers();
 	}
 	
+	
+	//this service is for developer purpose only
 	@GetMapping("/getUsersByRole/{role}")
     public List<Profile> findByRole(@PathVariable String role){
         return profileService.findByRole(role);
     }
 	
-	  @PutMapping("/updateUserProfile")
-	    public String updateUserProfile(@RequestBody Profile profile) {
-
-	        return profileService.updateUserProfile(profile);
-	    }
+	//this is to update his/her(merchant or consumer) profile details
+	@PutMapping("/updateUserProfile")
+	public String updateUserProfile(@RequestBody Profile profile) {
+	    return profileService.updateUserProfile(profile);
+	}
+	
+	
 	
 
 }
