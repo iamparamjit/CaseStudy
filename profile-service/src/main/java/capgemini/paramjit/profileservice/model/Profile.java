@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
+
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -16,8 +16,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Document("profile")
 public class Profile {
-    @Transient
-    public static final String SEQUENCE_NAME = "user_sequence";
 	@Id
 	private String profileId;
 	private String fullName;

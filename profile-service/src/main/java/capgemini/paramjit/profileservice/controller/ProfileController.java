@@ -42,7 +42,7 @@ public class ProfileController {
 
 	
 	//this is for registration of an user(can be a merchant or a consumer)
-	@CrossOrigin(origins="http://localhost:4200")
+	
 	@PostMapping("/registerUser")
 	public String registerUser(@RequestBody Profile profile) {
 		return profileService.registerUser(profile);
