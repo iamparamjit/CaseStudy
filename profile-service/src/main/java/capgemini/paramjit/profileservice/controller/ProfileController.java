@@ -7,6 +7,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,12 +42,14 @@ public class ProfileController {
 
 	
 	//this is for registration of an user(can be a merchant or a consumer)
+	@CrossOrigin(origins="http://localhost:4200")
 	@PostMapping("/registerUser")
 	public String registerUser(@RequestBody Profile profile) {
 		return profileService.registerUser(profile);
 	}
 	
 	//this service is for developer purpose only
+	@CrossOrigin(origins="http://localhost:4200")
 	@GetMapping("/getAllUsers")
 	public List<Profile> getAllUsers() {
 		return profileService.getAllUsers();
