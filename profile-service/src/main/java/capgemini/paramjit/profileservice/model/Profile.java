@@ -16,6 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Document("profile")
 public class Profile {
+
 	@Id
 	private String profileId;
 	private String fullName;

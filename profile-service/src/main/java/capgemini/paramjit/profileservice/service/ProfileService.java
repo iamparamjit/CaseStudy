@@ -46,7 +46,7 @@ public class ProfileService implements UserDetailsService {
 
 	        return "Updation SUCCESS";
 	    }
-	public List<Profile> findByRole(String role) {
+	public List<Profile> getUsersByRole(String role) {
 		return profileRepo.findByRole(role);
 		
 	}
@@ -54,8 +54,15 @@ public class ProfileService implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		return new User("param","pass",new ArrayList<>());
+		//return new User("param","pass",new ArrayList<>());
+		Profile user= profileRepo.findByEmailId(username);
+		return new User(user.getEmailId(), user.getPassword(), new ArrayList<>());
 			}
+	public Optional<Profile> getUserById(String profileId) {
+		
+		return profileRepo.findById(profileId);
+	}
+	
 	
 	
 	

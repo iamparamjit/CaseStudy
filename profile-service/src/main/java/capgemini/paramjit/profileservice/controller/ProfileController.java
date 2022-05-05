@@ -1,6 +1,7 @@
 package capgemini.paramjit.profileservice.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -58,8 +59,13 @@ public class ProfileController {
 	
 	//this service is for developer purpose only
 	@GetMapping("/getUsersByRole/{role}")
-    public List<Profile> findByRole(@PathVariable String role){
-        return profileService.findByRole(role);
+    public List<Profile> getUsersByRole(@PathVariable String role){
+        return profileService.getUsersByRole(role);
+    }
+	
+	@GetMapping("/getUserById/{profileId}")
+    public Optional<Profile> getUserById(@PathVariable String profileId){
+        return profileService.getUserById(profileId);
     }
 	
 	//this is to update his/her(merchant or consumer) profile details
