@@ -13,7 +13,7 @@ import capgemini.paramjit.productservice.model.Product;
 
 
 @Repository
-public interface ProductRepository extends MongoRepository<Product, String>{
+public interface ProductRepository extends MongoRepository<Product, Integer>{
 
 	List<Product> findByProductCategory(String productCategory);
 

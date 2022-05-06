@@ -64,7 +64,7 @@ public class ProfileController {
     }
 	
 	@GetMapping("/getUserById/{profileId}")
-    public Optional<Profile> getUserById(@PathVariable String profileId){
+    public Optional<Profile> getUserById(@PathVariable int profileId){
         return profileService.getUserById(profileId);
     }
 	

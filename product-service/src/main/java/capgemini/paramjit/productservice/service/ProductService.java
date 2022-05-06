@@ -1,14 +1,15 @@
 package capgemini.paramjit.productservice.service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import capgemini.paramjit.productservice.model.IdGenerator;
 import capgemini.paramjit.productservice.model.Product;
+import capgemini.paramjit.productservice.repository.IdRepository;
 import capgemini.paramjit.productservice.repository.ProductRepository;
 
 
@@ -18,8 +19,16 @@ public class ProductService {
 
 	@Autowired
 	private ProductRepository productRepo;
+	@Autowired
+	private IdRepository idRepo;
 
 	public String addProduct(Product product) {
+		IdGenerator idGen= idRepo.findById("productId").get();
+		product.setProductId(idGen.getSeq());
+		idGen.setSeq(idGen.getSeq()+1);
+		idRepo.save(idGen);
+		
+		  
 		productRepo.save(product);
 		return "Product Added";
 	}
@@ -33,7 +42,7 @@ public class ProductService {
 
 	 public String updateProduct(Product product) {
 
-	        Optional<Product> prod = productRepo.findById(product.getId());
+	        Optional<Product> prod = productRepo.findById(product.getProductId());
 	        if (!prod.isPresent()) {
 	            return ("Updation FAILED");
 	        }
@@ -45,12 +54,12 @@ public class ProductService {
 	 
 	 
 
-	public Optional<Product> getProductById(String id) {
-	        return productRepo.findById(id);	
+	public Optional<Product> getProductById(int productId) {
+	        return productRepo.findById(productId);	
 	        }
 
-	public String deleteProduct(String id) {
-		productRepo.deleteById(id);
+	public String deleteProduct(int productId) {
+		productRepo.deleteById(productId);
 		return "deleted succesfully";
 	}
 
@@ -67,7 +76,7 @@ public class ProductService {
 	}
 
 	public List<Product> getProductByType(String productType) {
-		// TODO Auto-generated method stub
+		
 		return productRepo.findByProductType(productType);
 	}
 

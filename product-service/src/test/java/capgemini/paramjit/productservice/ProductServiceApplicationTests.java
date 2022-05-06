@@ -31,12 +31,12 @@ class ProductServiceApplicationTests {
 	@Order(1)
 	public void testCreate() {
 		Product product = new Product();
-		product.setId("200");
+		product.setProductId(200);
 		product.setProductName("iPhone XR");
 		product.setProductDescription("Fantastic");
 		product.setProductPrice(70000.00);
 		productRepo.save(product);
-		assertNotNull(productRepo.findById("200").get());
+		assertNotNull(productRepo.findById(200).get());
 	}
 
 	@Test
@@ -49,23 +49,23 @@ class ProductServiceApplicationTests {
 	@Test
 	@Order(3)
 	public void testGetProduct() {
-		Product product = productRepo.findById("200").get();
+		Product product = productRepo.findById(200).get();
 		assertEquals("iPhone XR", product.getProductName());
 	}
 
 	@Test
 	@Order(4)
 	public void testUpdateProduct() {
-		Product p = productRepo.findById("200").get();
+		Product p = productRepo.findById(200).get();
 		p.setProductPrice(800.00);
 		productRepo.save(p);
-		assertNotEquals(700.00, productRepo.findById("200").get().getProductPrice());
+		assertNotEquals(700.00, productRepo.findById(200).get().getProductPrice());
 	}
 
 	@Test
 	@Order(5)
 	public void testDeleteProduct() {
-		productRepo.deleteById("200");
-		assertThat(productRepo.existsById("200")).isFalse();
+		productRepo.deleteById(200);
+		assertThat(productRepo.existsById(200)).isFalse();
 	}
 }

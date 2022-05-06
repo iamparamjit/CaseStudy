@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 public class Profile {
 
 	@Id
-	private String profileId;
+	private int profileId;
 	private String fullName;
 	private String emailId;
 	private Long mobileNumber;

@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,14 +32,15 @@ public class ProductController {
 	}
 	
 	@GetMapping("/getAllProducts")
+	@CrossOrigin(origins="http://localhost:4200")
 	public List<Product> getAllProducts(){
 		
 		return productService.getAllProducts();
 	}
 	
-	@GetMapping("/getProductById/{id}")
-	public Optional<Product> getProductById(@PathVariable String id){
-		return productService.getProductById(id);
+	@GetMapping("/getProductById/{productId}")
+	public Optional<Product> getProductById(@PathVariable int productId){
+		return productService.getProductById(productId);
 	}
 	
 	@GetMapping("/getProductByCategory/{productCategory}")
@@ -57,9 +59,9 @@ public class ProductController {
 	        return productService.updateProduct(product);
 	    }
 	
-	 @DeleteMapping("/deleteProduct/{id}")
-	 public String deleteProduct(@PathVariable String id){
-			return productService.deleteProduct(id);
+	 @DeleteMapping("/deleteProduct/{productId}")
+	 public String deleteProduct(@PathVariable int productId){
+			return productService.deleteProduct(productId);
 		}
 	 
 		

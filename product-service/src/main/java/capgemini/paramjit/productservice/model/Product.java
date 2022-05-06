@@ -1,7 +1,8 @@
 package capgemini.paramjit.productservice.model;
 
-import javax.persistence.Id;
 
+
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
@@ -17,13 +18,12 @@ import lombok.Data;
 @Document("product")
 public class Product {
 	@Id
-	private String id;
+	private int productId;
 	private String productName;
 	private String productType;
 	private String productCategory;
 	private String productDescription;
 	private double productPrice;
-	
-	
+	private String imageURL;
 	
 	}
