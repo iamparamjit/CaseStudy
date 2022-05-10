@@ -80,6 +80,10 @@ public class ProductService {
 		return productRepo.findByProductType(productType);
 	}
 
+	public Optional<Product> getProductByName(String productName) {
+		return productRepo.findByProductName(productName);
+	}
+
 	
 	
 	

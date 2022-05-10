@@ -9,6 +9,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,7 +28,9 @@ import capgemini.paramjit.profileservice.utility.JWTUtility;
 
 
 @RestController
+
 @RequestMapping("/profile")
+
 public class ProfileController {
 	
 	@Autowired
@@ -69,9 +72,15 @@ public class ProfileController {
     }
 	
 	//this is to update his/her(merchant or consumer) profile details
+	
 	@PutMapping("/updateUserProfile")
 	public String updateUserProfile(@RequestBody Profile profile) {
 	    return profileService.updateUserProfile(profile);
+	}
+	
+	@DeleteMapping("/deleteAll")
+	public String deleteAllProfiles() {
+	    return profileService.deleteAllProfiles();
 	}
 	
 	

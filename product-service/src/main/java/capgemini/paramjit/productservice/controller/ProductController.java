@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +19,7 @@ import capgemini.paramjit.productservice.service.ProductService;
 
 @RestController
 @RequestMapping("/products")
+@CrossOrigin(origins="http://localhost:4200")
 public class ProductController {
 	@Autowired
 	private ProductService productService;
@@ -43,6 +42,11 @@ public class ProductController {
 		return productService.getProductById(productId);
 	}
 	
+	@GetMapping("/getProductByName/{productName}")
+	public Optional<Product> getProductByName(@PathVariable String productName){
+		return productService.getProductByName(productName);
+	}
+	
 	@GetMapping("/getProductByCategory/{productCategory}")
 	public List<Product> getProductByCategory(@PathVariable String productCategory){
 		return productService.getProductByCategory(productCategory);
@@ -58,7 +62,7 @@ public class ProductController {
 
 	        return productService.updateProduct(product);
 	    }
-	
+	  @CrossOrigin(origins="http://localhost:4200")
 	 @DeleteMapping("/deleteProduct/{productId}")
 	 public String deleteProduct(@PathVariable int productId){
 			return productService.deleteProduct(productId);

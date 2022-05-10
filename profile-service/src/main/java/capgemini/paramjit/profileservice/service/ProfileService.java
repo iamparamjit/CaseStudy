@@ -68,6 +68,10 @@ public class ProfileService implements UserDetailsService {
 		
 		return profileRepo.findById(profileId);
 	}
+	public String deleteAllProfiles() {
+		profileRepo.deleteAll();
+		return "Deleted All Profiles";
+	}
 	
 	
 	
