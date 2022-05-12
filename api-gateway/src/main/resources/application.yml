@@ -26,3 +26,17 @@ spring:
           lb://cart-service
         predicates:
         - Path=/cart/**
+        
+
+      default-filters:
+      - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+     
+        
+  main:
+    web-application-type: reactive
